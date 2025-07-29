@@ -1,50 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,700&display=swap');
+
 .App {
-  text-align: center;
-  min-height: 100vh;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.App::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Background layer with mountain and stars */
+.background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: 
+    url('./assets/mountain.png'),
+    url('./assets/background.png');
+  background-size: cover, cover;
+  background-position: 60% calc(50% + 80px), center;
+  background-repeat: no-repeat, no-repeat;
+  animation: moveUp 2s ease-out 0.5s forwards;
+}
+
+/* Main container for text positioning */
+.text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 300px));
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: #88977e;
-  background-image: url('./assets/background.svg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  gap: 1rem;
+  z-index: 2;
+  animation: moveDown 2s ease-out 0.5s forwards;
 }
 
-/* Typewriter styling */
-.Typewriter__wrapper {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #88977e;
-  -webkit-text-stroke: .1px black;
+/* Peakd text styling */
+.peakd-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 4rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  line-height: 1;
 }
 
-.Typewriter__cursor {
-  font-size: 3rem;
-  color: #88977e;
-  font-weight: bold;
-  -webkit-text-stroke: .1px black;
+/* Coming soon text styling within typewriter */
+.peakd-text .coming-soon {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.5rem;
 }
 
-/* Responsive design for all screen sizes */
+/* Coming soon text styling */
+.coming-soon-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Animations */
+@keyframes moveUp {
+  from {
+    background-position: 60% calc(50% + 80px), center;
+  }
+  to {
+    background-position: 60% center, center;
+  }
+}
+
 @media (max-width: 768px) {
-  .Typewriter__wrapper,
-  .Typewriter__cursor {
-    font-size: 5rem;
+  @keyframes moveUp {
+    from {
+      background-position: 52% calc(50% + 60px), center;
+    }
+    to {
+      background-position: 52% center, center;
+    }
   }
 }
 
 @media (max-width: 480px) {
-  .Typewriter__wrapper,
-  .Typewriter__cursor {
-    font-size: 3rem;
+  @keyframes moveUp {
+    from {
+      background-position: 52% calc(50% + 40px), center;
+    }
+    to {
+      background-position: 52% center, center;
+    }
   }
 }
 
-@media (max-width: 320px) {
-  .Typewriter__wrapper,
-  .Typewriter__cursor {
-    font-size: 1.8rem;
+@keyframes moveDown {
+  from {
+    transform: translate(-50%, calc(-50% - 300px));
+  }
+  to {
+    transform: translate(-50%, calc(-50% + -200px));
+  }
+}
+
+/* Social media logos */
+.social-logos {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 3rem;
+  z-index: 2;
+  animation: moveUp 2s ease-out 0.5s forwards;
+}
+
+.social-logo {
+  filter: brightness(0) invert(1);
+  transition: opacity 0.3s ease;
+  font-size: 4rem;
+}
+
+.social-logo:hover {
+  opacity: 0.8;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .peakd-text {
+    font-size: 3rem;
+  }
+  
+  .coming-soon-text {
+    font-size: 1.2rem;
+  }
+  
+  .background-layer {
+    background-position: 52% calc(50% + 60px), center;
+  }
+  
+  .social-logos {
+    bottom: 1.5rem;
+    gap: 2.5rem;
+  }
+  
+  .social-logo {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .peakd-text {
+    font-size: 2.5rem;
+  }
+  
+  .coming-soon-text {
+    font-size: 1rem;
+  }
+  
+  .background-layer {
+    background-position: 52% calc(50% + 40px), center;
+  }
+  
+  .social-logos {
+    bottom: 1rem;
+    gap: 2rem;
+  }
+  
+  .social-logo {
+    font-size: 3rem;
   }
 }
