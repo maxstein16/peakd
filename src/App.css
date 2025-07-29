@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,700&display=swap');
 
+/* ===== BASE STYLES ===== */
 .App {
   position: relative;
   width: 100%;
@@ -19,7 +20,7 @@
   pointer-events: none;
 }
 
-/* Background layer with mountain and stars */
+/* ===== BACKGROUND LAYER ===== */
 .background-layer {
   position: absolute;
   top: 0;
@@ -35,7 +36,7 @@
   animation: moveUp 2s ease-out 0.5s forwards;
 }
 
-/* Main container for text positioning */
+/* ===== TEXT COMPONENTS ===== */
 .text-container {
   position: absolute;
   top: 50%;
@@ -49,19 +50,6 @@
   animation: moveDown 2s ease-out 0.5s forwards;
 }
 
-@media (max-width: 768px) {
-  .text-container {
-    transform: translate(-50%, -100px);
-  }
-}
-
-@media (max-width: 480px) {
-  .text-container {
-    transform: translate(-50%, -100px);
-  }
-}
-
-/* Peakd text styling */
 .peakd-text {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -75,7 +63,6 @@
   width: 100%;
 }
 
-/* Typewriter component styling */
 .peakd-text .Typewriter {
   text-align: center;
   width: 100%;
@@ -85,7 +72,6 @@
   display: none;
 }
 
-/* Coming soon text styling within typewriter */
 .peakd-text .coming-soon {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
@@ -93,7 +79,6 @@
   font-size: 1.5rem;
 }
 
-/* Coming soon text styling */
 .coming-soon-text {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
@@ -104,70 +89,7 @@
   opacity: 0.9;
 }
 
-/* Animations */
-@keyframes moveUp {
-  from {
-    background-position: 60% calc(50% + 80px), center;
-  }
-  to {
-    background-position: 60% center, center;
-  }
-}
-
-@media (max-width: 768px) {
-  @keyframes moveUp {
-    from {
-      background-position: 52% calc(50% + 60px), center;
-    }
-    to {
-      background-position: 52% center, center;
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  @keyframes moveUp {
-    from {
-      background-position: 52% calc(50% + 40px), center;
-    }
-    to {
-      background-position: 52% center, center;
-    }
-  }
-}
-
-@keyframes moveDown {
-  from {
-    transform: translate(-50%, -100px);
-  }
-  to {
-    transform: translate(-50%, calc(-50% - 150px));
-  }
-}
-
-@media (max-width: 768px) {
-  @keyframes moveDown {
-    from {
-      transform: translate(-50%, -100px);
-    }
-    to {
-      transform: translate(-50%, calc(-50% - 200px));
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  @keyframes moveDown {
-    from {
-      transform: translate(-50%, -100px);
-    }
-    to {
-      transform: translate(-50%, calc(-50% - 150px));
-    }
-  }
-}
-
-/* Social media logos */
+/* ===== SOCIAL MEDIA LOGOS ===== */
 .social-logos {
   position: absolute;
   bottom: 2rem;
@@ -189,7 +111,26 @@
   opacity: 0.8;
 }
 
-/* Responsive design */
+/* ===== ANIMATIONS ===== */
+@keyframes moveUp {
+  from {
+    background-position: 60% calc(50% + 80px), center;
+  }
+  to {
+    background-position: 60% center, center;
+  }
+}
+
+@keyframes moveDown {
+  from {
+    transform: translate(-50%, -100px);
+  }
+  to {
+    transform: translate(-50%, calc(-50% - 150px));
+  }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
   .peakd-text {
     font-size: 3rem;
@@ -200,7 +141,7 @@
   }
   
   .text-container {
-    transform: translate(-50%, calc(-50% - 200px));
+    transform: translate(-50%, -100px);
   }
   
   .background-layer {
@@ -215,6 +156,24 @@
   .social-logo {
     font-size: 3.5rem;
   }
+  
+  @keyframes moveUp {
+    from {
+      background-position: 52% calc(50% + 60px), center;
+    }
+    to {
+      background-position: 52% center, center;
+    }
+  }
+  
+  @keyframes moveDown {
+    from {
+      transform: translate(-50%, -100px);
+    }
+    to {
+      transform: translate(-50%, calc(-50% - 150px));
+    }
+  }
 }
 
 @media (max-width: 480px) {
@@ -227,7 +186,7 @@
   }
   
   .text-container {
-    transform: translate(-50%, calc(-50% - 150px));
+    transform: translate(-50%, -100px);
   }
   
   .background-layer {
@@ -241,5 +200,49 @@
   
   .social-logo {
     font-size: 3rem;
+  }
+  
+  @keyframes moveUp {
+    from {
+      background-position: 52% calc(50% + 40px), center;
+    }
+    to {
+      background-position: 52% center, center;
+    }
+  }
+  
+  @keyframes moveDown {
+    from {
+      transform: translate(-50%, -100px);
+    }
+    to {
+      transform: translate(-50%, calc(-50% - 200px));
+    }
+  }
+}
+
+/* Mobile-specific fixes for actual phone browsers */
+@media screen and (max-width: 480px) {
+  .text-container {
+    transform: translate(-50%, -170px) !important;
+  }
+}
+
+@media screen and (max-width: 480px) and (orientation: portrait) {
+  .text-container {
+    transform: translate(-50%, -170px) !important;
+  }
+}
+
+@media screen and (max-width: 480px) and (orientation: landscape) {
+  .text-container {
+    transform: translate(-50%, -170px) !important;
+  }
+}
+
+/* Touch device specific */
+@media (hover: none) and (pointer: coarse) {
+  .text-container {
+    transform: translate(-50%, -170px) !important;
   }
 }
