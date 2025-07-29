@@ -49,6 +49,18 @@
   animation: moveDown 2s ease-out 0.5s forwards;
 }
 
+@media (max-width: 768px) {
+  .text-container {
+    transform: translate(-50%, -100px);
+  }
+}
+
+@media (max-width: 480px) {
+  .text-container {
+    transform: translate(-50%, -100px);
+  }
+}
+
 /* Peakd text styling */
 .peakd-text {
   font-family: 'Montserrat', sans-serif;
@@ -150,7 +162,7 @@
       transform: translate(-50%, -100px);
     }
     to {
-      transform: translate(-50%, calc(-50% - 200px));
+      transform: translate(-50%, calc(-50% - 150px));
     }
   }
 }
