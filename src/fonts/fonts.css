@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'TT Fors';
+  src: url('./font.ttf') format('truetype');
+  font-weight: norm;
+  font-style: normal;
+  font-display: swap;
+}
